@@ -35,36 +35,22 @@ public class ShellSort {
 }
 
 /*
-Initial Array
-Our starting array is: [36, 18, 10, 27, 3, 20, 9, 8]
+Initial Array: [36, 18, 10, 27, 3, 20, 9, 8]
 
-Setting Up Increments (Hibbard’s Sequence)
-For an array of length 8, Hibbard’s sequence gives us the increments: 1, 3, 7. We start with the largest increment (7), then move to smaller increments (3, then 1).
+First Increment (gap = 7):
 
-Shell Sort Steps
-1. First Pass (Increment = 7)
-Compare elements that are 7 positions apart.
-In our array, this would compare 36 with 8 (only one pair due to the array size and increment).
-No swap is needed as 36 is not less than 8.
-After this pass, the array remains unchanged: [36, 18, 10, 27, 3, 20, 9, 8].
+The array is virtually divided into sublists of gap 7.
+The sublists are: [36, 8], with all other elements not having pairs 7 positions apart.
+After sorting the sublist [36, 8], the array becomes: [8, 18, 10, 27, 3, 20, 9, 36].
+Second Increment (gap = 3):
 
-2. Second Pass (Increment = 3)
-Now, we compare elements that are 3 positions apart.
-The comparisons will be between the pairs (36, 27), (18, 3), (10, 20), (27, 9).
-Swap 36 and 27, 18 and 3, 10 and 20. No swap needed for 27 and 9.
-After this pass, the array looks like: [27, 3, 10, 36, 18, 20, 9, 8].
+The array is now divided into sublists of gap 3.
+The sublists are: [8, 27, 9], [18, 3, 36], [10, 20].
+After sorting each sublist, the array becomes: [3, 8, 10, 9, 18, 20, 27, 36].
+Third Increment (gap = 1):
 
-3. Third Pass (Increment = 1)
-Now, the increment is 1, so we do a standard insertion sort.
-We sequentially compare each element with its predecessors and insert it into its correct position.
-The process for this pass:
-3 is already in the correct position.
-Insert 20 between 3 and 27.
-36 is moved to the end.
-Insert 10 between 3 and 20.
-Insert 18 between 10 and 20.
-9 is inserted between 8 and 10.
-No change for 8.
-The final sorted array is [3, 8, 9, 10, 18, 20, 27, 36].
+With a gap of 1, a regular insertion sort is applied to the entire array.
+The array becomes: [3, 8, 9, 10, 18, 20, 27, 36].
+Final Output: [3, 8, 9, 10, 18, 20, 27, 36]
  */
 
